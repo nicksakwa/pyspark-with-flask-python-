@@ -17,6 +17,21 @@ def get_spark_session():
 @app.route('/')
 def index():
     return render_template_string("""
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width-device-width, initial-scale=1.0">
+            <title>PySpark Flask App</title>
+            <style>
+                body {font-family: sans-serif; margin : 20px;}
+                h1 {color: #333;}
+                form { margin-top: 20px;}
+                input[type="submit"] { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+                .result { margin-top: 30px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; }
+                pre { background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+            </style>
+            <body>                 
                                   
                                   
                                   
