@@ -71,7 +71,29 @@ def index():
                         word_count_results=request.args.get('wc_results')
                         random_number_results=request.args.get('rn_result')
     )
-                                  
+
+@app.route('/generate_numbers', methods=['POST'])
+def generate_numbers():
+    try:
+        num_rows=int(request.form.get('num_rows', 100000))
+        if num_rows <=0:
+            return "Please enter a positive number of rows."    
+    except ValueError:
+            return "Invalid input for number of rows" 
+    spark= get_spark_session()
+    data= [(i, float(i)*0.1+(i % 5)) for i in range(num_rows)] 
+    df= spark.createDataFrame(data, ["id", "value"])  
+
+    total_sum=df.agg(sum("value").alias("total_value")).collect()[0]["total_value"]
+    avg_value=df.agg(col("value").alias("avg_value")).summary("mean").collect()[0]["mean"]   
+
+    results_str = f"Generated {num_rows} rows.\n"
+                  f"Total sum of values:"{total_sum:.2f}\n"
+                  f"Average value:{float(avg_value):.2f}" 
+
+    return render_template_string(index(), rn_results=results_str) 
+if __name__=='__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)              
                                                    
                                   
                                   
