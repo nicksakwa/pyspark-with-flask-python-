@@ -45,6 +45,33 @@ def index():
                         </textarea><br><br>
                         <input type="submit" value="Run word count">
                         </form>
+                                  
+                        {% if word_count_results %}
+                        <div class="results">
+                            <h3>Word count results:</h3>
+                            <pre>{{ word_count_results }}</pre>
+                        </div>
+                        
+                        {% endif %}        
+                        <h2>Generate random numbers (PySpark)</h2>
+                        <form action="/generate_numbers" method="post">
+                            <label for="num_rows">Number of rows:</label>
+                            <input type="number" id="num_rows" name="num_rows" value="100000"><br><br>
+                            <input type="submit" value="Generate and process">
+                        </form>
+                            {% if random_number_results %}
+                            <div class="result">
+                                  <h3>Random numbers processing results:</h3>
+                                  <pre>{{ random_number_results }}</pre>
+                            </div>
+                            {% end if %}
+                        </body>
+                        </html>
+                        """,
+                        word_count_results=request.args.get('wc_results')
+                        random_number_results=request.args.get('rn_result')
+    )
+                                  
                                                    
                                   
                                   
