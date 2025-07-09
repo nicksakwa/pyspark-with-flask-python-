@@ -1,8 +1,8 @@
 # Hey there!👋
 
-In this repository, I share code on Data Science and Machine learning model for unemployment with Python
+In this repository, I share code on Pyspark with Python
 
-# Data Science and Machine learning model for Unemployment with ScikitLearn
+# Simple Count, Average and Sum with PySpark Python
 
 ## Requirements
 * Python
