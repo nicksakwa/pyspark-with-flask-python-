@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Flask",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_DEBUG": "1",
+                "SPARK_HOME": "/Users/user/spark/spark-3.5.1-bin-hadoop3", // <--- IMPORTANT: Update this
+                "PYSPARK_PYTHON": "${command:python.interpreterPath}" // Points to your selected Python interpreter (likely venv's)
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload",
+                "--host", "0.0.0.0",
+                "--port", "5000"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        }
+    ]
+}
