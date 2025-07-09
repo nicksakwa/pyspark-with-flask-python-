@@ -31,7 +31,21 @@ def index():
                 .result { margin-top: 30px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; }
                 pre { background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
             </style>
-            <body>                 
+            <body>
+                <h1> Pyspark Flask Example</h1>
+                <p> This app demonstrates running a simple Pyspark job from a Flask end point </p>
+                <h2>Word count</h2>
+                <form action="/word_count" method="post">
+                        <label for="test_input">Enter text:</label><br>
+                        <textarea id="test_input" name="text_input" rows="5" cols="50">
+                                  Hello Spark
+                                  Hello Pyspark
+                                  Spark is great
+                                  Pyspark is awesome
+                        </textarea><br><br>
+                        <input type="submit" value="Run word count">
+                        </form>
+                                                   
                                   
                                   
                                   
